@@ -1,4 +1,5 @@
 package main
+
 import "fmt"
 import "github.com/jinzhu/gorm"
 import _ "github.com/jinzhu/gorm/dialects/postgres"
@@ -19,5 +20,6 @@ func connectDB() *gorm.DB {
 func migrate() *gorm.DB {
 	db := connectDB()
 	db.AutoMigrate(&KeyValue{})
+	db.AutoMigrate(&Hash{})
 	return db
 }
